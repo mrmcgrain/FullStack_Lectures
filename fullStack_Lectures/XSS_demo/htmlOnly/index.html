@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Demo</title>
+</head>
+<body>
+
+    
+    <h1>Cross-Site Scripting (XSS) Demo</h1>
+
+    <form action="" method="GET">
+        <label for="input">Enter text:</label>
+        <input type="text" id="input" name="userInput">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Output:</h2>
+    <div id="output"></div>
+
+    <script>
+        // Get URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const userInput = params.get("userInput");
+
+        if (userInput) {
+            // ⚠️ Vulnerable: Injects user input directly into the DOM without sanitization
+            document.getElementById("output").innerHTML = userInput;
+        }
+    </script>
+
+
+<!-- <p> Attack Vectors</p> -->
+<!-- <<img src=x onerror=alert('XSS')>>
+"><script>setTimeout(()=>alert('XSS'), 1000)</script>
+<a href="javascript:alert('XSS')">Click me</a> -->
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "mern-socket-chat",
+  "version": "1.0.0",
+  "description": "MERN Stack Real-time Chat Application with Socket.io for teaching purposes",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm start",
+    "client": "cd client && npm run dev",
+    "server:dev": "cd server && npm run dev",
+    "install-all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [
+    "mern",
+    "socket.io",
+    "chat",
+    "real-time",
+    "websockets",
+    "mongodb",
+    "express",
+    "react",
+    "node"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
